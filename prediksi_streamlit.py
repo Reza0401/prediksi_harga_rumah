@@ -18,3 +18,6 @@ input_tahun = st.number_input("Tahun", min_value=2010, max_value=2030, step=1)
 if st.button("Prediksi"):
     prediksi = model.predict([[input_tahun]])
     st.success(f"Prediksi harga rumah di tahun {input_tahun}: {prediksi[0]:.2f} juta")
+
+model = pickle.load(open('model.pkl', 'rb'))
+df = pd.read_csv('data.csv')
